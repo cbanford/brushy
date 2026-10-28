@@ -1,0 +1,144 @@
+:root {
+  --border-blue: #43acd1;
+  --button-blue: #198ec0;
+  --button-blue-dark: #08729f;
+  --button-white: #ffffff;
+  --frame-size: clamp(14px, 2.2vw, 30px);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: var(--border-blue);
+  overscroll-behavior: none;
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+button {
+  border: 0;
+  font: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.brushy {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  border: var(--frame-size) solid var(--border-blue);
+  background-color: #d8f6ff;
+  background-image: url("assets/brushy-background.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.main-play,
+.control-button {
+  display: grid;
+  place-items: center;
+  color: var(--button-white);
+  background: rgba(25, 142, 192, 0.93);
+  box-shadow: 0 6px 0 rgba(8, 114, 159, 0.9), 0 8px 24px rgba(0, 75, 112, 0.26);
+  cursor: pointer;
+}
+
+.main-play {
+  width: clamp(112px, 17vmin, 180px);
+  aspect-ratio: 1;
+  padding: clamp(26px, 4vmin, 44px);
+  border: clamp(6px, 0.8vmin, 10px) solid rgba(255, 255, 255, 0.94);
+  border-radius: 50%;
+  transition: opacity 160ms ease, transform 120ms ease;
+}
+
+.main-play svg {
+  width: 100%;
+  height: 100%;
+  margin-left: 8%;
+  fill: currentColor;
+}
+
+.main-play:active,
+.control-button:active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 var(--button-blue-dark), 0 4px 12px rgba(0, 75, 112, 0.2);
+}
+
+.main-play:focus-visible,
+.control-button:focus-visible {
+  outline: 5px solid #ffffff;
+  outline-offset: 5px;
+}
+
+.main-play.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.controls {
+  position: absolute;
+  left: max(calc(var(--frame-size) + 8px), env(safe-area-inset-left));
+  bottom: max(calc(var(--frame-size) + 8px), env(safe-area-inset-bottom));
+  display: flex;
+  gap: 12px;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 160ms ease;
+}
+
+.controls.is-visible {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.control-button {
+  width: clamp(52px, 8vmin, 68px);
+  aspect-ratio: 1;
+  padding: clamp(11px, 1.7vmin, 15px);
+  border: 3px solid rgba(255, 255, 255, 0.92);
+  border-radius: 50%;
+}
+
+.control-button svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+.play-icon {
+  display: none;
+}
+
+.is-paused .pause-icon {
+  display: none;
+}
+
+.is-paused .play-icon {
+  display: block;
+}
+
+@media (orientation: portrait) {
+  .brushy {
+    background-size: contain;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .main-play,
+  .controls {
+    transition: none;
+  }
+}

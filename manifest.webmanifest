@@ -1,0 +1,11 @@
+{
+  "name": "Lola's Brushy Time",
+  "short_name": "Brushy Time",
+  "description": "A simple tooth-brushing song player.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "background_color": "#43acd1",
+  "theme_color": "#43acd1"
+}

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#4aaed1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Lola's Brushy Time</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="brushy" id="app">
+      <button class="main-play" id="main-play" type="button" aria-label="Play brushing song">
+        <svg aria-hidden="true" viewBox="0 0 64 64">
+          <path d="M22 14.5v35L49 32 22 14.5Z" />
+        </svg>
+      </button>
+
+      <div class="controls" id="controls" aria-hidden="true">
+        <button class="control-button" id="pause-play" type="button" aria-label="Pause song">
+          <svg class="pause-icon" aria-hidden="true" viewBox="0 0 48 48">
+            <path d="M13 10h8v28h-8zM27 10h8v28h-8z" />
+          </svg>
+          <svg class="play-icon" aria-hidden="true" viewBox="0 0 48 48">
+            <path d="M16 9v30l24-15L16 9Z" />
+          </svg>
+        </button>
+
+        <button class="control-button" id="restart" type="button" aria-label="Restart song">
+          <svg aria-hidden="true" viewBox="0 0 48 48">
+            <path d="M24 9a15 15 0 1 1-14.2 19.9h6A9.5 9.5 0 1 0 18 17l6 6V8l-4.2 4.2A15 15 0 0 1 24 9Z" />
+          </svg>
+        </button>
+      </div>
+
+      <audio id="song" preload="auto">
+        <source src="assets/short-brushy-brush.mp3" type="audio/mpeg">
+      </audio>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
